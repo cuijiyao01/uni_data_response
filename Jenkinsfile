@@ -7,6 +7,7 @@ node {
 //     def harbor_project_name = "uni_data_response"
 //     //Harbor的凭证
 //     def harbor_auth = "ef499f29-f138-44dd-975e-ff1ca1d8c933"
+       def project_name = "uni_data_response"
 
     stage('pull code') {
         checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], extensions: [], userRemoteConfigs: [[credentialsId: '8ef8f501-5664-43bb-bb71-fa2fe0ad2929', url: 'git@github.com:cuijiyao01/uni_data_response.git']]])
