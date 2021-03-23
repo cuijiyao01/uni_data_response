@@ -1,10 +1,10 @@
 node {
     //构建版本的名称
-    def tag = "vlatest"
+    def tag = "latest"
     //docker地址
     def docker_url = "https://hub.docker.com"
     //docker项目名称
-    def docker_project_name = "uni_data_response"
+    def docker_project_name = "my_images"
     //docker的凭证
     def docker_auth = "dockerhub-userpass"
     def project_name = "uni_data_response"
