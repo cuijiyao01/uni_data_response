@@ -6,7 +6,7 @@ node {
     //docker项目名称
     def docker_project_name = "my_images"
     //docker的凭证
-    def docker_auth = "dockerhub-userpass"
+    def docker_auth = "b50aec70-d279-493e-88c1-ebc12247dc0c"
     def project_name = "uni_data_response"
 
     stage('pull code') {
@@ -25,10 +25,12 @@ node {
             sh "docker login -u ${username} -p ${password} ${docker_url}"
             //上传镜像
             sh "docker push ${docker_project_name}/${imageName}"
+            sh "echo 镜像上传成功!"
         }
 
         //删除本地镜像
         sh "docker rmi -f ${imageName}"
         sh "docker rmi -f ${docker_project_name}/${imageName}"
+        sh "删除本地镜像成功!"
     }
 }
