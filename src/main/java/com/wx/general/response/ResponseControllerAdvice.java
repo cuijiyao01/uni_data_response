@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @Author i531869
  * @Date 2020/12/9 18:08
  * @Version 1.0
+ *
+ *
  */
 @RestControllerAdvice(basePackages = "com.wx.controller")
 public class ResponseControllerAdvice implements ResponseBodyAdvice {
