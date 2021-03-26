@@ -20,7 +20,7 @@ node {
         //给镜像打标签
         sh "docker tag ${imageName} ${docker_project_name}/${imageName}"
         //登录docker，并上传镜像
-        withCredentials([usernamePassword(credentialsId: '${docker_auth}', passwordVariable: 'password', usernameVariable: 'username')]) {
+        withCredentials([usernamePassword(credentialsId: 'b50aec70-d279-493e-88c1-ebc12247dc0c', passwordVariable: 'password', usernameVariable: 'username')]) {
             //登录
             sh "docker login -u ${username} -p ${password} ${docker_url}"
             //上传镜像
