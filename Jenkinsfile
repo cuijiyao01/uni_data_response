@@ -2,7 +2,7 @@ node {
     //构建版本的名称
     def tag = "latest"
     //docker地址
-    def docker_url = "https://hub.docker.com"
+    def docker_url = "https://index.docker.io"
     //docker项目名称
     def docker_project_name = "my_images"
     //docker的凭证
