@@ -4,7 +4,7 @@ node {
     //docker地址
     def docker_url = "https://index.docker.io"
     //docker项目名称
-    def docker_project_name = "my_images"
+    def docker_project_name = "jetanex"
     //docker的凭证
     def docker_auth = "b50aec70-d279-493e-88c1-ebc12247dc0c"
     def project_name = "uni_data_response"
