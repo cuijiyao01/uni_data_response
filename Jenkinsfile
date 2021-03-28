@@ -32,5 +32,12 @@ node {
         sh "docker rmi -f ${imageName}"
         sh "docker rmi -f ${docker_project_name}/${imageName}"
         sh "删除本地镜像成功!"
+
+        sshPublisher(publishers: [sshPublisherDesc(configName: 'aliyun_server', 
+        transfers: [sshTransfer(cleanRemote: false, excludes: '', 
+        execCommand: '/opt/jenkins_shell/deploy.sh $docker_url $docker_project_name $project_name $tag $port', 
+        execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, 
+        patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', 
+        sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
     }
 }
