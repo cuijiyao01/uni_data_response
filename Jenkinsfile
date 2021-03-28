@@ -31,7 +31,7 @@ node {
         //删除本地镜像
         sh "docker rmi -f ${imageName}"
         sh "docker rmi -f ${docker_project_name}/${imageName}"
-        sh "删除本地镜像成功!"
+        sh "echo 删除本地镜像成功!"
 
         sshPublisher(publishers: [sshPublisherDesc(configName: 'aliyun_server', 
         transfers: [sshTransfer(cleanRemote: false, excludes: '', 
