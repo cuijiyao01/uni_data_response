@@ -2,7 +2,7 @@ node {
     //构建版本的名称
     def tag = "latest"
     //docker地址
-    def docker_url = "https://docker.io"
+    def docker_url = "docker.io"
     //docker项目名称
     def docker_project_name = "jetanex"
     //docker的凭证
