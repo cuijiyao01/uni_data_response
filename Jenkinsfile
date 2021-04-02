@@ -33,7 +33,7 @@ node {
         sh "docker rmi -f ${docker_project_name}/${imageName}"
         sh "echo 删除本地镜像成功!"
 
-        sshPublisher(publishers: [sshPublisherDesc(configName: 'tencent_server',
+        sshPublisher(publishers: [sshPublisherDesc(configName: '$deploy_server',
         transfers: [sshTransfer(cleanRemote: false, excludes: '', 
         execCommand: '/opt/jenkins_shell/deploy.sh docker.io jetanex uni_data_response latest $port',
         execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, 
