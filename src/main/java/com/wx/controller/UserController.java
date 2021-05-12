@@ -34,9 +34,10 @@ public class UserController {
   }
 
   @GetMapping("/getUser/{id}")
-  public User getUser(@PathVariable Integer id){
-    log.info("id:{}",id);
-    User user =userService.getUser(id);
+  public User getUser(@PathVariable Integer id) {
+    log.info("id:{}", id);
+    User user = userService.getUser(id);
+    log.info("获取到的user:" + user);
     return user;
   }
 
@@ -44,6 +45,5 @@ public class UserController {
   public String hello() {
     return "hello";
   }
-
 
 }
