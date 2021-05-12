@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration scan="true">
+  <property resource="log/logback.properties" />
+
+  <!-- 控制台日志配置 -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <!-- 格式化 -->
+      <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%p] [%t] %c{36} - %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- info级别日志控制 -->
+  <appender name="FILE_INFO"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!-- 文件路径 -->
+    <file>${logback.path}/elk-info.log</file>
+    <!-- 是否追加 默认为true -->
+    <append>true</append>
+    <!-- 滚动策略 日期+大小 策略 -->
+    <rollingPolicy
+        class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${logback.path}/elk-info.%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+    <!-- 格式化 -->
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%p] [%t] %c{36} - %m%n</pattern>
+    </encoder>
+    <!-- 级别过滤 -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <!-- ERROR级别日志控制 -->
+  <appender name="ERROR_INFO"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!-- 文件路径 -->
+    <file>${logback.path}/elk-error.log</file>
+    <!-- 是否追加 默认为true -->
+    <append>true</append>
+    <!-- 滚动策略 日期+大小 策略 -->
+    <rollingPolicy
+        class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${logback.path}/elk-error.%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+    <!-- 格式化 -->
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%p] [%t] %c{36} - %m%n</pattern>
+    </encoder>
+    <!-- 级别过滤 -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <!--日志导出的到 Logstash-->
+  <appender name="stash"
+            class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+    <destination>localhost:9250</destination>
+    <!-- encoder必须配置,有多种可选 -->
+    <encoder charset="UTF-8"
+             class="net.logstash.logback.encoder.LogstashEncoder">
+      <!-- "appname":"ye_test" 的作用是指定创建索引的名字时用，并且在生成的文档中会多了这个字段  -->
+      <customFields>{"appname":"ye_test"}</customFields>
+    </encoder>
+  </appender>
+
+  <root level="${logback.level}">
+    <appender-ref ref="stash"/>
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE_INFO" />
+    <appender-ref ref="ERROR_INFO" />
+  </root>
+</configuration>

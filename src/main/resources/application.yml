@@ -6,3 +6,6 @@ spring:
       force: true
       charset: utf-8
       enabled: true
+
+logging:
+  config: classpath:log/logback.xml
