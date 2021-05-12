@@ -35,7 +35,7 @@ node {
 
         sshPublisher(publishers: [sshPublisherDesc(configName: 'aliyun_server',
         transfers: [sshTransfer(cleanRemote: false, excludes: '', 
-        execCommand: '/opt/jenkins_shell/deploy.sh docker.io jetanex uni_data_response latest $port',
+        execCommand: '/opt/jenkins_shell/deployUniData.sh docker.io jetanex uni_data_response latest $port',
         execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, 
         patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', 
         sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
