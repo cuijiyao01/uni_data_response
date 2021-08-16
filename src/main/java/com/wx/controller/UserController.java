@@ -31,6 +31,7 @@ public class UserController {
   public ResultVO<String> addUser(@RequestBody @Valid User user) {
     log.info(user.toString());
     log.info("一");
+    log.info("二");
     return new ResultVO<>(userService.addUser(user));
   }
 
