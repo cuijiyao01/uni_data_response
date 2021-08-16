@@ -38,6 +38,7 @@ public class UserController {
     log.info("id:{}", id);
     User user = userService.getUser(id);
     log.info("获取到的user:" + user);
+    log.info("加一行日志");
     return user;
   }
 
