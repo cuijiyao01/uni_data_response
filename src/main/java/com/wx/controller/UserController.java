@@ -39,6 +39,7 @@ public class UserController {
     User user = userService.getUser(id);
     log.info("获取到的user:" + user);
     log.info("加一行日志");
+    log.info("加两行日志");
     return user;
   }
 
