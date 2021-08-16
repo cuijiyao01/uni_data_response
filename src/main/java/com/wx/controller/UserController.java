@@ -30,6 +30,7 @@ public class UserController {
   @PostMapping("addUser")
   public ResultVO<String> addUser(@RequestBody @Valid User user) {
     log.info(user.toString());
+    log.info("一");
     return new ResultVO<>(userService.addUser(user));
   }
 
