@@ -43,6 +43,7 @@ public class UserController {
     log.info("加三行日志");
     log.info("加四行日志");
     log.info("加五行日志");
+    log.info("加六行日志");
     return user;
   }
 
