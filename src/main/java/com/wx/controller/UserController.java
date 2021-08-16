@@ -40,6 +40,7 @@ public class UserController {
     log.info("获取到的user:" + user);
     log.info("加一行日志");
     log.info("加两行日志");
+    log.info("加三行日志");
     return user;
   }
 
