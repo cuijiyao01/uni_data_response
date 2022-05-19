@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.stream.IntStream;
 
 /**
  * @Author i531869
@@ -48,6 +51,7 @@ public class UserController {
     log.info("加六行日志");
     log.info("加七行日志");
     log.info("加八行日志");
+    new HashSet<>(new ArrayList<>());
     return user;
   }
 
